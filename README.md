@@ -8,7 +8,7 @@ Credits for translation goes to [LogosA](https://forum.xda-developers.com/member
 Briefly about the fix: changes to the Parcel class in libbinder broke the ABI for all blobs that link to libbinder and use the Parcel class.
 The fix suggests to change blobs so that wherever a Parcel object is created, to allocate enough space on the stack for this object.
 
-Original fix idea from javelinanddart ([i9300: Remove ashmem tracking hack](https://review.lineageos.org/c/LineageOS/android_device_samsung_i9300/+/167912)).
+Original fix idea from [javelinanddart](https://forum.xda-developers.com/member.php?u=5795145)  ([i9300: Remove ashmem tracking hack](https://review.lineageos.org/c/LineageOS/android_device_samsung_i9300/+/167912)).
 
 This fix was tested on the Galaxy S3, I decided to share it, because similar changes have been needed since Marshmallow, when the RIL was also broken on a bunch of devices.
 If you have RIL blobs
