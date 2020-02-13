@@ -85,13 +85,13 @@ We are interested in the selected line,
 .text: 0001DC10 SUB SP, SP, # 0x34
 ```
 
-This instruction allocates 0x34 bytes on the stack. Our task is to change the instruction so that more bytes are allocated on the stack (how many exactly - on S3 it was enough to add 12 bytes, or, if you count 4 added bytes from the time of Oreo, then 16 bytes totally. The main thing is not to go too far and not allocate too much).
+This instruction allocates 0x34 bytes on the stack. Our goal is to change the instruction so that more bytes are allocated on the stack (how many exactly - on S3 it was enough to add 12 bytes, or, if you count 4 added bytes from the time of Oreo, then 16 bytes totally. The main thing is not to go too far and not allocate too much).
 
 3. Remember the offset (0001DC10)
 Copy the code (SUB SP, SP, # 0x34)
 and paste it into any ARM assembler, for example
 [http://shell-storm.org…format=inline#assembly](http://shell-storm.org/online/Online-Assembler-and-Disassembler/?inst=SUB+++++++++++++SP%2C+SP%2C+%230x34&arch=arm-t&as_format=inline#assembly)
-(you need to choose a set of instructions accordingly, in this case we chose ARM Thumb)
+(you need to choose the set of instructions accordingly, in this case we chose ARM Thumb)
 In the IDA, go to the Hex view tab:
  
 ![](https://github.com/ChronoMonochrome/hacking_the_blobs/raw/master/3.png)
@@ -101,8 +101,8 @@ In online assembler, change the code to
 
 ```assembly
 SUB SP, SP, # 0x40
-(0x34 + 12 = 0x40)
 ```
+(0x34 + 12 = 0x40)
 
 Take the assembler output (under "Assembly - Little Endian"):
 "\x90\xb0"
