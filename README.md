@@ -73,17 +73,11 @@ it's possible that the reason is the ABI incompatibility, and this fix may help.
 Wait until the functions analisys is finished, and look for the function android::Parcel::Parcel(void), aka _ZN7android6ParcelC1Ev.
 We next will find the places where the function is called (by highlighting the beginning of the function and pressing "X"):
  
- <details>
-  <summary>placeholder for screenshot 1</summary>
-  
- </details>
+![](https://github.com/ChronoMonochrome/hacking_the_blobs/raw/master/1.png)
 
 2. In the example there are only three places where this function is called from. Let's move on to the second place, RIL_onMultiClientRequestComplete (since this is a short function and easier to parse for example), we find the beginning of the function:
 
-<details>
-  <summary>placeholder for screenshot 2</summary>
-  
- </details>
+![](https://github.com/ChronoMonochrome/hacking_the_blobs/raw/master/2.png)
  
 We are interested in the selected line,
 
@@ -100,12 +94,9 @@ and paste it into any ARM assembler, for example
 (you need to choose a set of instructions accordingly, in this case we chose ARM Thumb)
 In the IDA, go to the Hex view tab:
  
- <details>
-  <summary>placeholder for screenshot 3</summary>
-  
- </details>
+![](https://github.com/ChronoMonochrome/hacking_the_blobs/raw/master/3.png)
 
-And we make sure that the same bytes (8D B0) are allocated in the IDA that the online assembler gave us.
+And we make sure that the same bytes (8D B0) are highlighted in the IDA that the online assembler gave us.
 In online assembler, change the code to
 
 ```assembly
@@ -120,10 +111,7 @@ We see that only the first byte has changed. So far, we have found only one inst
 We also need to find an instruction at the end of the function that frees up those bytes on the stack.
 
 4. Go to the end of the function
- <details>
-  <summary>placeholder for screenshot 4</summary>
-  
- </details>
+![](https://github.com/ChronoMonochrome/hacking_the_blobs/raw/master/4.png)
 
 Again, we are interested in the highlighted line:
 ```assembly
