@@ -1,7 +1,7 @@
 # Hex-editing the RIL blobs (RIL fix for LOS 17.1)
 
 Note: this is a translation of the post on 4pda: 
-https://4pda.ru/forum/index.php?showtopic=209610&st=34880#entry93381502
+https://4pda.to/forum/index.php?showtopic=209610&st=34560#entry93381502
 
 Credits for translation goes to [LogosA](https://forum.xda-developers.com/member.php?u=5554397).
 
